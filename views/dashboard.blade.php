@@ -2,7 +2,7 @@
 @section('content')
         <!-- top tiles -->
 <div class="row tile_count" onclick="document.location = 'streams.php?running=1'"  style="cursor:pointer">
-        <div class="animated flipInY col-md-4 col-sm-4 col-xs-4 tile_stats_count" onclick="document.location = 'streams.php'"  style="cursor:pointer">
+        <div class="col-md-4 col-sm-4 col-xs-4 tile_stats_count" onclick="document.location = 'streams.php'"  style="cursor:pointer">
         <div class="left"></div>
         <div class="right">
             <span class="count_top"> Activos</span>
@@ -14,14 +14,14 @@
 
 
 	
-	<div class="animated flipInY col-md-4 col-sm-4 col-xs-4 tile_stats_count">
+	<div class="col-md-4 col-sm-4 col-xs-4 tile_stats_count">
         <div class="left"></div>
         <div class="right">
             <span class="count_top"><i class="fa fa-user"></i> Usuarios Activos</span>
             <div class="count_top green">0</div>
         </div>
     </div>
-    <div class="animated flipInY col-md-4 col-sm-4 col-xs-4 tile_stats_count" onclick="document.location = 'streams.php?running=2'"  style="cursor:pointer">
+    <div class="col-md-4 col-sm-4 col-xs-4 tile_stats_count" onclick="document.location = 'streams.php?running=2'"  style="cursor:pointer">
         <div class="left"></div>
         <div class="right">
             <span class="count_top"><i class="fa fa-clock-o"></i> Conexiones Abiertas</span>
