@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>FOS-Streaming panel by Tyfix</title>
+    <title>FOS-Streaming panel by Narusuke</title>
 
     <!-- Bootstrap core CSS -->
 
@@ -85,13 +85,13 @@ if (isset($_POST['submit'])) {
                 <form action="" method="post">
                     <h1>FOS-Streaming</h1>
                     <div>
-                        <input type="text" name="username" class="form-control" placeholder="Username" required="" />
+                        <input type="text" name="username" class="form-control" placeholder="Usuario" required="" />
                     </div>
                     <div>
                         <input type="password" name="password" class="form-control" placeholder="Password" required="" />
                     </div>
                     <div>
-                        <input type="submit" name="submit" class="btn btn-default submit" value="Log in">
+                        <input type="submit" name="submit" class="btn btn-default submit" value="Entrar">
                     </div>
                     <div class="clearfix"></div>
                     <div class="separator">
@@ -102,7 +102,7 @@ if (isset($_POST['submit'])) {
                         <div>
 
 
-                            <p>&copy;2015 All Rights Reserved FOS-Streaming by <a href="http://www.tyfix.nl" target="_blank">Tyfix</a></p>
+                            <p>&copy;2018 All Rights Reserved FOS-Streaming by Narusuke</a></p>
                         </div>
                     </div>
                 </form>

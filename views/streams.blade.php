@@ -11,15 +11,15 @@
                         <h2>{{ $title }} </h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <a class="btn btn-round btn-primary" href="manage_stream.php" title="Add">
-                                Add stream
+                                Agregar Canal
                             </a>
                         </ul>
                         <div class="clearfix"></div>
                     </div>
                     <form action=""method="post">
-                        <input type="submit" name="mass_start" value="Mass start" class="btn btn-small btn-success" onclick="return confirm('Are you sure?')">
-                        <input type="submit" name="mass_stop" value="Mass stop" class="btn btn-small btn-danger" onclick="return confirm('Are you sure?')">
-                        <input type="submit" name="mass_delete" value="Mass delete" class="btn btn-small btn-danger" onclick="return confirm('Are you sure?')">
+                        <input type="submit" name="mass_start" value="Iniciar Todo" class="btn btn-small btn-success" onclick="return confirm('Are you sure?')">
+                        <input type="submit" name="mass_stop" value="Parar Todo" class="btn btn-small btn-danger" onclick="return confirm('Are you sure?')">
+                        <input type="submit" name="mass_delete" value="Borrar Todo" class="btn btn-small btn-danger" onclick="return confirm('Are you sure?')">
                         @if(count($streams) > 0)
                             @if($message)
                                 <div class="alert alert-{{ $message['type'] }}">
@@ -35,13 +35,13 @@
                                     <th>
                                         <input type="checkbox" id="check-all" class="flat">
                                     </th>
-                                    <th>Name</th>
-                                    <th>Status</th>
-                                    <th>Category</th>
-                                    <th>Video</th>
-                                    <th>Audio</th>
-                                    <th class=" no-link last"><span class="nobr">Action</span>
-                                    </th>
+                                    <th>Nombre</th>
+                                    <th>Estado</th>
+                                    <th>Categoria</th>
+                                    <th>Video Codec</th>
+                                    <th>Audio Codec</th>
+                                    <th class=" no-link last"><span class="nobr">Action</span></th>
+									<th>Tiempo de actividad</th>
                                 </tr>
                                 </thead>
 
@@ -80,18 +80,34 @@
                                         </td>
                                         <td class="center">
                                             @if($stream->status == 1)
-                                                <a class="btn btn-danger" title="STOP STREAM" href="streams.php?stop={{ $stream->id }}">Stop</a>
+                                                <a class="btn btn-danger" title="STOP STREAM" href="streams.php?stop={{ $stream->id }}">Parar</a>
                                             @elseif ($stream->status != 1)
-                                                <a class="btn btn-success" title="START STREAM" href="streams.php?start={{ $stream->id }}">Start</a>
+                                                <a class="btn btn-success" title="START STREAM" href="streams.php?start={{ $stream->id }}">Iniciar</a>
                                             @endif
 
                                             <a class="btn btn-info" href="manage_stream.php?id={{ $stream->id }}" title="Edit">
-                                                Edit
+                                                Editar
                                             </a>
                                             <a class="btn btn-danger" href="streams.php?delete={{ $stream->id }}" title="Delete" onclick="return confirm('Are you sure?')">
-                                                Remove
+                                                Borrar
                                             </a>
 
+                                        </td>
+										<td>
+                                            @if($stream->updated_at)
+                                             <?php
+											 $streams_time = strtotime($stream->updated_at . " UTC");
+											 $time_now = $hora_actual = time();
+											 
+											 $segundos=$time_now-$streams_time-18000;
+										     $horas = floor($segundos/ 3600);
+	                                         $minutos = floor(($segundos - ($horas * 3600)) / 60);
+	                                         $segundos = $segundos - ($horas * 3600) - ($minutos * 60);
+	                                         echo $horas . ' hora ' . $minutos . " minuto " . $segundos . " segundo";									
+                                             ?>
+                                            @else
+                                                Empty
+                                            @endif
                                         </td>
                                 @endforeach
 
